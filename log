@@ -108,3 +108,14 @@ Fri, Apr  8, 2022  4:41:53 PM:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 44a3f0c
+Fri, Apr  8, 2022  4:43:00 PM: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:44:11: error: unused variable 'new' [-Werror=unused-variable]
+     Pair *new = createPair(key, value);
+           ^~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+d9bf6e3

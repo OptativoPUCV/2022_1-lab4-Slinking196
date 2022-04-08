@@ -46,8 +46,8 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     for (i = hash(key, map->capacity); i < map->capacity; i++) {
         if (is_equal(key, map->buckets[i]->key) != 0) {
-            map->buckets[i] = new;
-            map->current = i;
+            /*map->buckets[i] = new;
+            map->current = i;*/
             break;
         }
     }
