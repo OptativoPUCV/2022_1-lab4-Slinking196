@@ -3,6 +3,7 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include "hashmap.h"
 
 
@@ -41,18 +42,16 @@ int is_equal(void* key1, void* key2){
 
 void insertMap(HashMap * map, char * key, void * value) {
     Pair *new = createPair(key, value);
-    size_t i = hash(key, map->capacity);
+    size_t i;
 
-    while(0) {
-        if (is_equal(key, map->buckets[i]->key)) {
-            i++;
-        }
-        else {
+    for (i = hash(key, map->capacity); i < map->capacity; i++) {
+        if (!is_equal(key, map->buckets[i]->key)) {
             map->buckets[i] = new;
             map->current = i;
             break;
         }
     }
+    
 }
 
 void enlarge(HashMap * map) {
