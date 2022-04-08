@@ -44,9 +44,11 @@ void insertMap(HashMap * map, char * key, void * value) {
     Pair *new = createPair(key, value);
     long i = hash(key, map->capacity);
 
-    while (is_equal((void *)key, (void *)map->buckets[i]->key) != 0) {
-        i++;
-        if (i == map->capacity) break;
+    if (i < map->capacity) { 
+        while (is_equal((void *)key, (void *)map->buckets[i]->key) != 0) {
+            i++;
+            if (i == map->capacity) break;
+        }
     }
     map->buckets[i] = new;
     map->current = i;
