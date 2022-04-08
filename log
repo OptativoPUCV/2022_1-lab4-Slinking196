@@ -69,3 +69,14 @@ Fri, Apr  8, 2022  4:21:06 PM:
  tests:  1|5
 total_score: 10/70
 27b846d
+Fri, Apr  8, 2022  4:31:15 PM: 
+ hashmap.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:43:11: error: unused variable 'new' [-Werror=unused-variable]
+     Pair *new = createPair(key, value);
+           ^~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+0b47ebd
