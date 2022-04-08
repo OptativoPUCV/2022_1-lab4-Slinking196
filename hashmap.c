@@ -43,17 +43,15 @@ int is_equal(void* key1, void* key2){
 void insertMap(HashMap * map, char * key, void * value) {
     Pair *new = createPair(key, value);
     long i = hash(key, map->capacity);
-
-    map->buckets[i] = new;
-    map->current = i;
-    map->size++;
-    /*for (i = hash(key, map->capacity); i < map->capacity; i++) {
-        if (is_equal(key, map->buckets[i]->key) != 0) {
+    while (true) {
+        if (is_equal((void *)key, map->buckets[i]->key) == 0) {
             map->buckets[i] = new;
             map->current = i;
+            map->size++;
             break;
         }
-    }*/
+        else i++;
+    }
     
 }
 
