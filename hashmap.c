@@ -50,6 +50,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         else {
             map->buckets[i] = new;
             map->current = i;
+            break;
         }
     }
 }
