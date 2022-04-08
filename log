@@ -156,3 +156,14 @@ Fri, Apr  8, 2022  5:03:01 PM:
  1 file changed, 1 insertion(+)
  tests:  0|0
 841f564
+Fri, Apr  8, 2022  5:03:50 PM: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:47:14: error: format '%d' expects argument of type 'int', but argument 2 has type 'long int' [-Werror=format=]
+     printf("%d", i);
+              ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+ab7b599
