@@ -167,3 +167,8 @@ hashmap.c:47:14: error: format '%d' expects argument of type 'int', but argument
 cc1.exe: all warnings being treated as errors
 Compilation failed
 ab7b599
+Fri, Apr  8, 2022  5:09:13 PM: 
+ hashmap.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+ tests:  0|0
+9292920
