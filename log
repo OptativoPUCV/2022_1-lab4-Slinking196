@@ -226,3 +226,23 @@ Fri, Apr  8, 2022 10:49:53 PM:
  1 file changed, 1 insertion(+)
  tests:  0|0
 5a42724
+Fri, Apr  8, 2022 10:53:13 PM: 
+ hashmap.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:49:40: error: 'return' with a value, in function returning void [-Werror]
+         if (i >= map->capacity) return NULL;
+                                        ^~~~
+hashmap.c:43:6: note: declared here
+ void insertMap(HashMap * map, char * key, void * value) {
+      ^~~~~~~~~
+hashmap.c:50:50: error: 'return' with a value, in function returning void [-Werror]
+         if (map->buckets[i]->key == NULL) return NULL;
+                                                  ^~~~
+hashmap.c:43:6: note: declared here
+ void insertMap(HashMap * map, char * key, void * value) {
+      ^~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+cb1a40a
