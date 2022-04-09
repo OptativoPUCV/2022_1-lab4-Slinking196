@@ -49,11 +49,9 @@ bool esIgual(void *key, void *key2) {
 void insertMap(HashMap * map, char * key, void * value) {
     Pair *new = createPair(key, value);
     long i = hash(key, map->capacity);
-    void *auxKey = (void *)map->buckets[i]->key;
 
-    while (esIgual(key, auxKey)) {
+    while (esIgual(key, map->buckets[i - 1]->key)) {
         i++;
-        auxKey = map->buckets[i]->key;
         if (i >= map->capacity) break;
     }
     map->buckets[i] = new;
