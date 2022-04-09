@@ -94,6 +94,7 @@ Pair * searchMap(HashMap * map,  char * key) {
 Pair * firstMap(HashMap * map) {
     size_t i;
 
+    if (map->size == 0) return NULL;
     for (i = 0; i < map->capacity; i++) {
         if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
             map->current = i;
@@ -105,13 +106,13 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-    size_t i;
+    size_t i = map->current;
 
-    for (i = map->current; i < map->capacity; i++) {
-        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
-            map->current = i;
-            return map->buckets[i];
-        }
+    if (map->size == 0) return NULL;
+    while (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
+        i = (i + 1) % map->capacity;
     }
-    return NULL;
+
+    map->current = i;
+    return map->buckets[i];
 }
