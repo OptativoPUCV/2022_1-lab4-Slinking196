@@ -26,7 +26,7 @@ Pair * createPair( char * key,  void * value) {
 
 long hash( char * key, long capacity) {
     unsigned long hash = 0;
-     char * ptr;
+    char * ptr;
     for (ptr = key; *ptr != '\0'; ptr++) {
         hash += hash*32 + tolower(*ptr);
     }
@@ -54,7 +54,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     while (esIgual(key, auxKey)) {
         i++;
         auxKey = map->buckets[i]->key;
-        if (i >= map->capacity) break;;
+        if (i >= map->capacity) break;
     }
     map->buckets[i] = new;
     map->current = i;
