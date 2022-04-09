@@ -39,12 +39,18 @@ int is_equal(void* key1, void* key2){
     return 0;
 }
 
+bool esIgual(void *key, void *key2) {
+    if (key == NULL || key2 == NULL) return false;
+    if (strcmp((char *)key, (char *)key2) == 0) return true;
+    return false;
+}
+
 
 void insertMap(HashMap * map, char * key, void * value) {
     Pair *new = createPair(key, value);
     long i = hash(key, map->capacity);
 
-    while (is_equal(key, map->buckets[i]->key)) {
+    while (esIgual(key, map->buckets[i]->key)) {
         i++;
         if (i >= map->capacity) break;;
     }
