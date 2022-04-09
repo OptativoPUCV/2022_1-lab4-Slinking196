@@ -486,3 +486,14 @@ Sat, Apr  9, 2022  1:00:28 AM:
  tests:  16|1
 total_score: 60/70
 038fe18
+Sat, Apr  9, 2022  1:21:17 AM: 
+ hashmap.c | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
+In file included from test.c:4:0:
+hashmap.c: In function 'enlarge':
+hashmap.c:57:15: error: unused variable 'j' [-Werror=unused-variable]
+     size_t i, j;
+               ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+c4cf257

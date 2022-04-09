@@ -3,7 +3,6 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include "hashmap.h"
 
 
@@ -53,8 +52,19 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
+    Pair **oldBuckets = map->buckets;
+    size_t tamano = map->capacity;
+    size_t i, j;
 
+    map->capacity *= 2;
+    map->buckets = (Pair **) calloc(map->capacity, sizeof(Pair *));
+    map->size = 0;
 
+    for (i = 0; i < tamano; i++) {
+        if (oldBuckets[i] != NULL) {
+            insertMap(map, oldBuckets[i]->key, oldBuckets[i]->value);
+        }
+    }
 }
 
 
@@ -106,17 +116,8 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-    size_t i = (map->current + 1) % map->capacity;
+    size_t i;
 
-    /*if (map == NULL) return NULL;
-    if (map->size == 0) return NULL;
-    while (map->buckets[i] == NULL) {
-        i = (i + 1) % map->capacity;
-    }
-    if (map->current == i) return NULL;
-
-    map->current = i;
-    return map->buckets[i];*/
     if (map->size == 0) return NULL;
     for (i = map->current + 1; i < map->capacity; i++) {
         if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
