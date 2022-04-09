@@ -50,10 +50,10 @@ void insertMap(HashMap * map, char * key, void * value) {
     Pair *new = createPair(key, value);
     long i = hash(key, map->capacity);
 
-    while (esIgual(key, map->buckets[i - 1]->key)) {
+    /*while (esIgual(key, map->buckets[i - 1]->key)) {
         i++;
         if (i >= map->capacity) break;
-    }
+    }*/
     map->buckets[i] = new;
     map->current = i;
     map->size++;
