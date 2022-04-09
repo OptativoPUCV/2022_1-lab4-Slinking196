@@ -43,13 +43,22 @@ void insertMap(HashMap * map, char * key, void * value) {
     Pair *new = createPair(key, value);
     long i = hash(key, map->capacity);
 
-    while (strcmp(key, map->buckets[i]->key)) {
-        i++;
-        if (i >= map->capacity) break;
+    if (map->buckets[i]->key == NULL) {
+        map->buckets[i] = new;
+        map->current = i;
+        map->size++;
     }
-    map->buckets[i] = new;
-    map->current = i;
-    map->size++;
+    else {
+        while (strcmp(key, map->buckets[i]->key)) {
+            i++;
+            if (map->buckets[i]->key == NULL) {
+                map->buckets[i] = new;
+                map->current = i;
+                map->size++;
+                break;
+            }
+        }
+    }
     
 }
 
