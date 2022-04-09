@@ -422,3 +422,9 @@ Sat, Apr  9, 2022 12:36:35 AM:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 f6b0c1a
+Sat, Apr  9, 2022 12:38:38 AM: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  13|2
+total_score: 50/70
+bd8bee8
