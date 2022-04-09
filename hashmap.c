@@ -74,6 +74,7 @@ void eraseMap(HashMap * map,  char * key) {
 
     if (pairEliminado != NULL) {
         pairEliminado->key = NULL;
+        map->size--;
     }
 
 }
