@@ -211,3 +211,8 @@ Fri, Apr  8, 2022 10:44:03 PM:
  tests:  2|5
 total_score: 20/70
 d0306b9
+Fri, Apr  8, 2022 10:45:49 PM: 
+ hashmap.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+ tests:  0|0
+5af6ee3
